@@ -1,0 +1,7 @@
+<%= form_for(@company, html: { class: "smart-green" }) do |form| %>
+  <h1>Editar a empresa</h1>
+
+  <%= render 'form', company: @company %>
+  <%= link_to 'Edit', edit_company_path(@company) %> |
+  <%= link_to 'Back', company_path %>
+<% end %>

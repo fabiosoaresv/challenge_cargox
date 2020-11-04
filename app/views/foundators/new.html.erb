@@ -1,0 +1,19 @@
+<h1>Add new foundator</h1>
+
+<%= form_tag :action => 'create' do %>
+<p><label for = "foundator_title">Title</label>:
+
+<%= text_field 'foundators', 'title' %></p>
+<p><label for = "foundator_price">Price</label>:
+
+<%= text_field 'foundators', 'price' %></p>
+<p><label for = "foundator_subject_id">Subject</label>:
+
+<%= collection_select(:foundators, :subject_id, @subjects, :id, :name, prompt: true) %></p>
+<p><label for = "foundator_description">Description</label><br/>
+
+<%= text_area 'foundators', 'description' %></p>
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {:action => 'list'} %>

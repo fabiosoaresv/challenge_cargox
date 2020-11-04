@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: adm_project_development
+  pool: 3
+  username: postgres
+  password:
+  host: localhost
