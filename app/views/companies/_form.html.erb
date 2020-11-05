@@ -1,25 +1,14 @@
-<%= form_with(model: company, local: true, html: { class: "smart-green" }) do |form| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
-
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= stylesheet_link_tag "application" %>
+<%= form_tag companies_update_path, method: :post do %>
+  <% @company.each do |name, value| %>
+    <div>
+      <%= label_tag name %>
+      <%= text_field_tag "#{name}]", value %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :company_name %>
-
-    <%= form.label :cnpj %>
-    <%= form.text_field :cnpj, id: :company_cnpj %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <br>
+  <%= submit_tag 'Atualizar', class: 'btn-primary pull-right' %>
 <% end %>
+
+
+

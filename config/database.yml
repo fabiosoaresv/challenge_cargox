@@ -5,4 +5,13 @@ development:
   pool: 3
   username: postgres
   password:
-  host: localhost
+  #host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: adm_project_test
+  pool: 3
+  username: postgres
+  password:
+  #host: localhost

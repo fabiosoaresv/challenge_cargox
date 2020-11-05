@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   #get 'companies', to: 'companies#index'
   #get 'companies/new', to: 'companies#new'
   post 'companies/create', to: 'companies#create'
+  post 'companies/update', to: 'companies#update'
+  post 'companies/delete', to: 'companies#delete'
   #delete 'companies/destroy', to: 'companies#destroy'
   #post 'companies/destroy', :to => 'companies#destroy'
   #get 'companies/:id/destroy(.:format)', :to => 'companies#destroy'

@@ -35,6 +35,9 @@ group :development, :test do
   gem 'graphiql-rails'
   gem 'graphlient'
   gem 'pry'
+  gem 'rspec-rails'
+  gem 'rspec'
+  gem 'headless'
 end
 
 group :development do

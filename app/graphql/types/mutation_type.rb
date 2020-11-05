@@ -1,6 +1,9 @@
 module Types
   class MutationType < Types::BaseObject
     field :add_company, mutation: Mutations::Companies::AddCompany
+    field :update_company, mutation: Mutations::Companies::UpdateCompany
+    field :remove_company, mutation: Mutations::Companies::RemoveCompany
+
     field :add_foundator, mutation: Mutations::Foundators::AddFoundator
     field :add_leader, mutation: Mutations::Leaders::AddLeader
     field :add_coordinator, mutation: Mutations::Coordinators::AddCoordinator

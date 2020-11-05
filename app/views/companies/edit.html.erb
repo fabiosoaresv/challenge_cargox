@@ -1,7 +1,8 @@
-<%= form_for(@company, html: { class: "smart-green" }) do |form| %>
+<%= stylesheet_link_tag "application" %>
+<div class="smart-green">
   <h1>Editar a empresa</h1>
 
   <%= render 'form', company: @company %>
-  <%= link_to 'Edit', edit_company_path(@company) %> |
-  <%= link_to 'Back', company_path %>
-<% end %>
+  <a href='/companies'><span class="button-back">Voltar</span></a>
+</div>
+

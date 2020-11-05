@@ -20,8 +20,8 @@
           <td><%= company['cnpj'] %></td>
           <td><%= company['foundation'] %></td>
           <td><%= company['foundatorId'] %> </td>
-          <td><%= link_to 'Editar', edit_company_path(Company.where(cnpj: company['cnpj']).first) %></td>
-          <td><%= link_to 'Deletar', company['cnpj'], method: :destroy%></td>
+          <td><%= link_to 'Editar', edit_company_path(company['cnpj']) %></td>
+          <td><%= link_to "Deletar", Company.where(cnpj: company['cnpj']).first, method: "delete" %></td>
         </tr>
       <% end %>
     </tbody>
