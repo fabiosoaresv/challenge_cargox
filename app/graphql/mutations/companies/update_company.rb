@@ -2,7 +2,6 @@ module Mutations
   module Companies
     class UpdateCompany < Mutations::BaseMutation
       argument :id, ID, required: true
-      argument :cnpj, ID, required: true
       argument :name, String, required: false
       argument :cnpj, Integer, required: false
       argument :foundation, String, required: false

@@ -2,14 +2,57 @@
 require 'graphlient'
 
 class ClientGraphql
-  attr_reader :params
+  attr_reader :params, :endpoint, :data, :id
 
   def initialize(params)
-    @params = params
+    @id = params[:id]
+    @endpoint = params[:endpoint]
+    @data = params[:data]
   end
 
-  def call
-    call_api(params)
+  def get_entries
+    query = "query { fetch#{endpoint} { #{data} } }"
+    response = call_api(query)
+
+    response&.original_hash['data']["fetch#{endpoint}"]
+  end
+
+  def add
+    query = "mutation {
+      add#{endpoint}(input: {
+        params: #{data}
+      }) {
+        #{endpoint.downcase} {
+          #{data.scan(/\w+:/).join.split(':').join("\n")}
+        }
+      }
+    }"
+
+    call_api(query)
+  end
+
+  def remove
+    query = "mutation {
+      remove#{endpoint}(input: {
+        id: #{id.to_i}
+      }) {
+        #{data}
+      }
+    }"
+
+    response = call_api(query)
+
+    response.original_hash['data']["fetch#{endpoint}"]
+  end
+
+  def update
+    query = "mutation {
+      update#{endpoint}(input: #{data}) {
+        #{data.scan(/\w+:/).join.split(':').join("\n")}
+      }
+    }"
+
+    call_api(query)
   end
 
   private
@@ -26,5 +69,10 @@ class ClientGraphql
     response = client.query <<~GRAPHQL
       #{params}
     GRAPHQL
+
+    return response if response
+
+    rescue => e
+      { 'success' => false, 'error_message' => e.message }
   end
 end

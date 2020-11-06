@@ -1,6 +1,5 @@
 module Types
   class CompanyType < Types::BaseObject
-    # Aqui é para exibir o ID
     field :id, Integer, null: true
     field :name, String, null: true
     field :cnpj, Integer, null: true

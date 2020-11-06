@@ -1,5 +1,6 @@
 module Types
   class FoundatorType < Types::BaseObject
+    field :id, Integer, null: true
     field :name, String, null: true
     field :surname, String, null: true
     field :age, Integer, null: true
