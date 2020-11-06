@@ -2,9 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Mutations::Companies::RemoveCompany', type: :request do
   context 'remove a company and' do
-    #TODO
-    # criar factory xD
-    #ENDTODO
     let!(:foundator) { Foundator.create(name: 'Fabio', surname: 'Soares', age: 23) }
     let!(:company) { Company.create(name: 'Empresa', cnpj: 1234, foundator_id: foundator.id, foundation: "20/02/1997") }
 

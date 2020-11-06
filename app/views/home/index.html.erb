@@ -1,8 +1,7 @@
 <%= stylesheet_link_tag "application" %>
 
 <div class="smart-green">
-  <center><h1>O que deseja fazer?</h1></center>
-  <center><h2>(Criar/Consultar/Atualizar/Deletar)</h2></center>
+  <h1>Bem vindo (escolha uma opção abaixo)</h1>
   <ul>
     <h2>
       <li><%= link_to "Empresas", companies_path %></li>
@@ -10,6 +9,7 @@
       <li><%= link_to "Líderes", leaders_path %></li>
       <li><%= link_to "Coordenadores", coordinators_path %></li>
       <li><%= link_to "Empregados", employees_path %></li>
+      <li><%= link_to "Relatório das Empresas", reports_path %></li>
     </h2>
   </ul>
 </div>

@@ -1,3 +1,4 @@
 class Foundator < ApplicationRecord
-  has_many :company
+  has_many :companies
+  has_one :leader
 end

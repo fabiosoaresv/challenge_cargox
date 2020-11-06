@@ -2,9 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Mutations::Companies::AddCompany', type: :request do
   context 'create a company and' do
-    #TODO
-    # criar factory xD
-    #ENDTODO
     let!(:foundator) { Foundator.create(name: 'Fabio', surname: 'Soares', age: 23) }
 
     it 'return successful' do

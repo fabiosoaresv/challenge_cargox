@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :leaders
   resources :coordinators
   resources :employees
+  resources :reports
 
   root 'home#index'
   post "/graphql", to: "graphql#execute"

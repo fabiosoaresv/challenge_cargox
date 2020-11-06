@@ -2,9 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Queries::FetchCompanies', type: :request do
   context 'try find all companies and' do
-    #TODO
-    # criar factory xD
-    #ENDTODO
     let!(:foundator) { Foundator.create(name: 'Fabio', surname: 'Soares', age: 23) }
     let!(:company1) { Company.create(name: 'Empresa1', cnpj: 1234, foundator_id: foundator.id, foundation: "20/02/1997") }
     let!(:company2) { Company.create(name: 'Empresa2', cnpj: 1234, foundator_id: foundator.id, foundation: "20/02/1997") }

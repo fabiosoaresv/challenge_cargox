@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag "application" %>
+<div class="smart-green">
+  <h1>Relatório das Empresas</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome da Empresa</th>
+        <th>CNPJ</th>
+        <th>Nome do Fundador</th>
+        <th>Número total de Funcionários</th>
+        <th>Número total de Líderes</th>
+        <th>Número total de Coordenadores</th>
+        <th>Número total de Empregados Sênior</th>
+        <th>Número total de Empregados Júnior</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @report_results.each do |result| %>
+        <tr>
+          <td><%= result[0] %></td>
+          <td><%= result[1] %></td>
+          <td><%= result[2] %></td>
+          <td><%= result[3] %></td>
+          <td><%= result[4] %></td>
+          <td><%= result[5] %> </td>
+          <td><%= result[6] %> </td>
+          <td><%= result[7] %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br><br>
+  <a href='/'><span class="button-back">Voltar</span></a>
+</div>
