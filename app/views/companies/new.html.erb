@@ -36,15 +36,16 @@
     </div>
   </div>
 
-    <div class="form-group">
-      <%= label_tag :system, 'Fundador:' %>
-      <%= select_tag(
-        'company[foundator_name]',
-        options_for_select(@foundators.map { |foundator| foundator['name']}),
-        prompt: 'Selecione um Fundador',
-        class: 'form-control type_select'
-      ) %>
-    </div>
+  <div class="form-group">
+    <%= label_tag :system, 'Fundador:' %>
+    <%= select_tag(
+      'company[foundator_name]',
+      options_for_select([
+        'Selecione um Fundador', @foundators.map { |foundator| foundator['name'] }
+      ].flatten, disabled: "Selecione um Fundador", selected: "Selecione um Fundador"),
+      class: 'form-control type_select'
+    ) %>
+  </div>
 
   <br>
   <div class="form-group row">

@@ -1,0 +1,99 @@
+<%= stylesheet_link_tag "application" %>
+<div class="smart-green">
+    <h1 class='display-4 my-5'>Criar novo empregado </h1>
+    <hr>
+
+<%= form_tag employees_create_path, method: :post do %>
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'employee[name]', 'Nome:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'employee[name]', params[:employee].try(:[], 'name'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'employee[surname]', 'Sobrenome:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'employee[surname]', params[:employee].try(:[], 'name'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'employee[age]', 'Idade:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'employee[age]', params[:employee].try(:[], 'age'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'employee[salary]', 'Salário:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'employee[salary]', params[:employee].try(:[], 'salary'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :system, 'Nível:' %>
+    <%= select_tag(
+      'employee[level]',
+      options_for_select([
+        'Selecione uma opção', @levels
+      ].flatten, disabled: "Selecione uma opção", selected: "Selecione uma opção"),
+      class: 'form-control type_select'
+    ) %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'employee[hiredAt]', 'Contratado em:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag(
+        'employee[hiredAt]',
+        params[:employee].try(:[], 'hiredAt'),
+        class: 'form-control datepicker',
+        placeholder: 'DD/MM/AAAA'
+      )%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :system, 'Em experiência:' %>
+    <%= select_tag(
+      'employee[level]',
+      options_for_select([
+        'Selecione uma opção', @experience
+      ].flatten, disabled: "Selecione uma opção", selected: "Selecione uma opção"),
+      class: 'form-control type_select'
+    ) %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :system, 'Coordenador:' %>
+    <%= select_tag(
+      'employee[level]',
+      options_for_select([
+        'Selecione uma Coordenador', @coordinators.map { |coordinator| coordinator['name']}
+      ].flatten, disabled: "Selecione uma Coordenador", selected: "Selecione uma Coordenador"),
+      class: 'form-control type_select'
+    ) %>
+  </div>
+
+  <br>
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-12">
+      <%= submit_tag 'Criar', class: 'btn btn-primary pull-right' %>
+    </div>
+    <br>
+    <a href='/companies'><span class="button-back">Voltar</span></a>
+  </div>
+<% end %>
+</div>

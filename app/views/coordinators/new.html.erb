@@ -49,8 +49,9 @@
     <%= label_tag :system, 'Líder:' %>
     <%= select_tag(
       'coordinator[leader_name]',
-      options_for_select(@leaders.map { |leader| leader['name']}),
-      prompt: 'Selecione um Líder',
+      options_for_select([
+        'Selecione um Líder', @leaders.map { |leader| leader['name']}
+      ].flatten, disabled: "Selecione um Líder", selected: "Selecione um Líder"),
       class: 'form-control type_select'
     ) %>
   </div>

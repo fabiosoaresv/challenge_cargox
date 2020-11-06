@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "application" %>
+<div class="smart-green">
+  <h1>Empregados</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Idade</th>
+        <th>Salário</th>
+        <th>Nível</th>
+        <th>Contratado em</th>
+        <th>Em experiência</th>
+        <th>Coordenador (ID)</th>
+        <th colspan="2">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee['name'] %></td>
+          <td><%= employee['surname'] %></td>
+          <td><%= employee['age'] %></td>
+          <td><%= employee['salary'] %></td>
+          <td><%= employee['level'] %></td>
+          <td><%= employee['hiredAt'] %> </td>
+          <td><%= employee['inExperience'] %> </td>
+          <td><%= employee['coordinatorId'] %> </td>
+          <td><%= link_to 'Editar', edit_employee_path(employee['name']) %></td>
+          <td><%= link_to 'Deletar', Employee.where(name: employee['name']).first, method: "delete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br><br>
+  <a href='/employees/new'><span class="button-send">Novo</span></a>
+  <a href='/'><span class="button-back">Voltar</span></a>
+</div>
