@@ -1,0 +1,62 @@
+<%= stylesheet_link_tag "application" %>
+<div class="smart-green">
+    <h1 class='display-4 my-5'>Criar novo líder </h1>
+    <hr>
+
+<%= form_tag leaders_create_path, method: :post do %>
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'leader[name]', 'Nome:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'leader[name]', params[:leader].try(:[], 'name'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'leader[surname]', 'Sobrenome:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'leader[surname]', params[:leader].try(:[], 'name'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'leader[age]', 'Idade:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'leader[age]', params[:leader].try(:[], 'age'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'leader[department]', 'Departamento:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'leader[department]', params[:leader].try(:[], 'department'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :system, 'Fundador:' %>
+    <%= select_tag(
+      'leader[foundator_name]',
+      options_for_select(@foundators.map { |foundator| foundator['name']}),
+      prompt: 'Selecione um Fundador',
+      class: 'form-control type_select'
+    ) %>
+  </div>
+
+  <br>
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-12">
+      <%= submit_tag 'Criar', class: 'btn btn-primary pull-right' %>
+    </div>
+    <br>
+    <a href='/companies'><span class="button-back">Voltar</span></a>
+  </div>
+<% end %>
+</div>

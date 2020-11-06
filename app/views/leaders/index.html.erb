@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag "application" %>
+<div class="smart-green">
+  <h1>Líderes</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Idade</th>
+        <th>Departamento</th>
+        <th>Fundador (ID)</th>
+        <th colspan="2">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @leaders.each do |leader| %>
+        <tr>
+          <td><%= leader['name'] %></td>
+          <td><%= leader['surname'] %></td>
+          <td><%= leader['age'] %></td>
+          <td><%= leader['department'] %> </td>
+          <td><%= leader['foundatorId'] %> </td>
+          <td><%= link_to 'Editar', edit_leader_path(leader['name']) %></td>
+          <td><%= link_to 'Deletar', Leader.where(name: leader['name']).first, method: "delete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br><br>
+  <a href='/leaders/new'><span class="button-send">Novo</span></a>
+  <a href='/'><span class="button-back">Voltar</span></a>
+</div>
