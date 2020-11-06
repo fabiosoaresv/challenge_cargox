@@ -3,23 +3,17 @@ Rails.application.routes.draw do
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "graphql#execute"
   end
 
-  root 'home#index'
-  post "/graphql", to: "graphql#execute"
   resources :companies
   resources :foundators
   resources :leaders
   resources :coordinators
   resources :employees
 
-  #get 'companies', to: 'companies#index'
-  #get 'companies/new', to: 'companies#new'
+  root 'home#index'
+  post "/graphql", to: "graphql#execute"
   post 'companies/create', to: 'companies#create'
   post 'companies/update', to: 'companies#update'
-  post 'companies/delete', to: 'companies#delete'
-  #delete 'companies/destroy', to: 'companies#destroy'
-  #post 'companies/destroy', :to => 'companies#destroy'
-  #get 'companies/:id/destroy(.:format)', :to => 'companies#destroy'
-  #get 'companies/:id/edit(.:format)', :to => 'companies#edit'
-  #post 'companies/:id/destroy(.:format)', :to => 'companies#destroy'
-  #delete 'companies/destroy', to: 'companies#destroy'
+  post 'foundators/create', to: 'foundators#create'
+  post 'foundators/update', to: 'foundators#update'
+
 end

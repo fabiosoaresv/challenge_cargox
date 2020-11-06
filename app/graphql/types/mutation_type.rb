@@ -5,6 +5,9 @@ module Types
     field :remove_company, mutation: Mutations::Companies::RemoveCompany
 
     field :add_foundator, mutation: Mutations::Foundators::AddFoundator
+    field :update_foundator, mutation: Mutations::Foundators::UpdateFoundator
+    field :remove_foundator, mutation: Mutations::Foundators::RemoveFoundator
+
     field :add_leader, mutation: Mutations::Leaders::AddLeader
     field :add_coordinator, mutation: Mutations::Coordinators::AddCoordinator
     #field :update_coordinator, mutation: Mutations::Coordinators::UpdateCoordinator

@@ -1,1 +1,31 @@
- <h1>Hello world</h1>
+<%= stylesheet_link_tag "application" %>
+<div class="smart-green">
+  <h1>Fundadores</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Idade</th>
+        <th colspan="2">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @foundators.each do |foundator| %>
+        <tr>
+          <td><%= foundator['name'] %></td>
+          <td><%= foundator['surname'] %></td>
+          <td><%= foundator['age'] %></td>
+          <td><%= link_to 'Editar', edit_foundator_path(foundator['name']) %></td>
+          <td><%= link_to "Deletar", Foundator.where(name: foundator['name']).first, method: "delete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br><br>
+  <a href='/foundators/new'><span class="button-send">Novo</span></a>
+  <a href='/'><span class="button-back">Voltar</span></a>
+</div>
