@@ -47,6 +47,7 @@ As relações e atributos seguem o seguinte diagrama:
             +----------------------+   +----------------------+
 
 ```
+docker-compose build && docker-compose up -d && docker-compose run web bundle exec rake db:create db:migrate db:seed
 
 ## Tarefa
 
