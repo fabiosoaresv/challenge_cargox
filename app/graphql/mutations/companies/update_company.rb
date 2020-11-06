@@ -15,9 +15,6 @@ module Mutations
 
         company.update!(params_update)
 
-        # TODO
-        # modify response to field
-        # ENDTODO
         {
           id: company.id,
           name: company.name,

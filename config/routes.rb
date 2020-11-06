@@ -15,5 +15,10 @@ Rails.application.routes.draw do
   post 'companies/update', to: 'companies#update'
   post 'foundators/create', to: 'foundators#create'
   post 'foundators/update', to: 'foundators#update'
-
+  post 'leaders/create', to: 'leaders#create'
+  post 'leaders/update', to: 'leaders#update'
+  post 'coordinators/create', to: 'coordinators#create'
+  post 'coordinators/update', to: 'coordinators#update'
+  post 'employees/create', to: 'employees#create'
+  post 'employees/update', to: 'employees#update'
 end

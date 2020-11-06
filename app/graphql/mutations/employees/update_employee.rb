@@ -1,7 +1,6 @@
 module Mutations
   module Employees
     class UpdateEmployee < Mutations::BaseMutation
-      #field :employee, Types::EmployeeType, null: false
       argument :id, ID, required: true
       argument :name, String, required: false
       argument :surname, String, required: false
@@ -20,9 +19,6 @@ module Mutations
 
         employee.update!(params_update)
 
-        # TODO
-        # modify response to field
-        # ENDTODO
         {
           age: employee.age,
           hired_at: employee.hired_at,

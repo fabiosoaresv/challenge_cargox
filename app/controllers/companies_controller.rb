@@ -32,18 +32,17 @@ class CompaniesController < ApplicationController
     client = ClientGraphql.new(params_create)
 
     if client.add
-      redirect_to '/companies', alert: 'Deletado com sucesso.'
+      redirect_to '/companies', alert: 'Criado com sucesso.'
     else
       redirect_to '/companies', alert: 'Erro desconhecido'
     end
   end
 
   def update
-    company_id = companies.select { |x| x['cnpj'] == params['cnpj'].to_i }.first['id']
     params_update = {
       endpoint: 'Company',
       data: "{
-        id: #{company_id.to_i},
+        id: #{params[:id].to_i},
         name: #{params[:name].to_json},
         cnpj: #{params[:cnpj].to_i},
         foundation: #{params[:foundation].to_json},
@@ -54,9 +53,9 @@ class CompaniesController < ApplicationController
     client = ClientGraphql.new(params_update)
 
     if client.update
-      redirect_to '/companies'
+      redirect_to '/companies', alert: 'Atualizado com sucesso.'
     else
-      redirect_to '/companies'
+      redirect_to '/companies', alert: 'Erro desconhecido'
     end
   end
 

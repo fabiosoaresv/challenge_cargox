@@ -19,18 +19,18 @@ class FoundatorsController < ApplicationController
 
   def create
     params_create = {
-      endpoint: 'Company',
+      endpoint: 'Foundator',
       data: "{
-        name: #{company_params[:name].to_json},
-        surname: #{company_params[:surname].to_json},
-        age: #{company_params[:age].to_i}
+        name: #{foundator_params[:name].to_json},
+        surname: #{foundator_params[:surname].to_json},
+        age: #{foundator_params[:age].to_i}
       }"
     }
 
     client = ClientGraphql.new(params_create)
 
     if client.add
-      redirect_to '/foundators', alert: 'Deletado com sucesso.'
+      redirect_to '/foundators', alert: 'Criado com sucesso.'
     else
       redirect_to '/foundators', alert: 'Erro desconhecido'
     end
@@ -50,9 +50,9 @@ class FoundatorsController < ApplicationController
     client = ClientGraphql.new(params_update)
 
     if client.update
-      redirect_to '/foundators'
+      redirect_to '/foundators', alert: 'Atualizado com sucesso.'
     else
-      redirect_to '/foundators'
+      redirect_to '/foundators', alert: 'Erro desconhecido'
     end
   end
 

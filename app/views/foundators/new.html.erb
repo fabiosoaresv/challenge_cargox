@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag "application" %>
+<div class="smart-green">
+    <h1 class='display-4 my-5'>Criar novo fundador </h1>
+    <hr>
+
+<%= form_tag foundators_create_path, method: :post do %>
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'foundator[name]', 'Nome:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'foundator[name]', params[:foundator].try(:[], 'name'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'foundator[surname]', 'Sobrenome:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'foundator[surname]', params[:foundator].try(:[], 'name'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-2">
+      <%= label_tag 'foundator[age]', 'Idade:', class: 'control-label' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= text_field_tag 'foundator[age]', params[:foundator].try(:[], 'age'), class: 'form-control' %>
+    </div>
+  </div>
+
+  <br>
+  <div class="form-group row">
+    <div class="col-sm-12 col-md-12">
+      <%= submit_tag 'Criar', class: 'btn btn-primary pull-right' %>
+    </div>
+    <br>
+    <a href='/companies'><span class="button-back">Voltar</span></a>
+  </div>
+<% end %>
+</div>

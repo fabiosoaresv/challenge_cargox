@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag "application" %>
+<%= form_tag coordinators_update_path, method: :post do %>
+  <% @coordinator.each do |name, value| %>
+    <div>
+      <%= label_tag name %>
+      <%= text_field_tag "#{name}]", value %>
+    </div>
+  <% end %>
+  <br>
+  <%= submit_tag 'Atualizar', class: 'btn-primary pull-right' %>
+<% end %>
+
+
+
