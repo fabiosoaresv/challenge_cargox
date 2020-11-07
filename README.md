@@ -168,6 +168,7 @@ Achei um pouco pesado o tamanho do CRUD, acredito que apenas a relação de 3 mo
 - Não tenho muito domínio em spec de integração, porém tenho noção, adicionei uma base de um spec de integração mas não consegui concluí-lo devido a minha stack ter um client, fiquei um pouco block nos mocks e configuração local da minha máquina do Capybara.
 
 Para utilizar o docker basta rodar os comandos:
+Obs.: dê um check no config/database.yml caso NÃO for utilizar docker, deverá alterar o host.
 ```console
 $ docker-compose build
 $ docker-compose up -d
@@ -210,7 +211,7 @@ Finished in 0.10011 seconds (files took 0.95889 seconds to load)
 
 ## Versões utilizadas:
 `ruby 2.6.3p62`
-`docker-compose version 1.27.4`
+`docker-compose version 1.25.5`
 `Debian GNU/Linux 10 (buster)`
 `psql (PostgreSQL) 9.6.19`
 

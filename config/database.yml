@@ -1,17 +1,18 @@
-development:
+default: &default
   adapter: postgresql
-  encoding: utf8
-  database: adm_project_development
-  pool: 3
+  encoding: unicode
+  # Se for rodar localmente sem docker, trocar o host
+  # host: localhost
+  host: db
   username: postgres
-  password:
-  #host: localhost
+  password: password
+  pool: 5
+
+development:
+  <<: *default
+  database: adm_project_development
+
 
 test:
-  adapter: postgresql
-  encoding: utf8
+  <<: *default
   database: adm_project_test
-  pool: 3
-  username: postgres
-  password:
-  #host: localhost
