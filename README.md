@@ -176,7 +176,7 @@ $ docker-compose run web bundle exec rake db:create db:migrate db:seed
 
 Ou para rodar o projeto localmente sem docker, basta clonar e rodar:
 ```console
-$ bundle install && bundle exec rails db:drop db:create db:migrate db:seed
+$ bundle install && bundle exec rails db:drop db:create db:migrate db:seed && rails s
 ```
 Evidência dos specs unitários passando:
 ```console
