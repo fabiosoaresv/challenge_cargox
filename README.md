@@ -159,7 +159,7 @@ Conforme dito anteriormente, contrui um front (em Rails pois não tenho muito do
 ## Considerações finais
 Achei um desafio bem bacana, tendo em vista que eu nunca havia mexido em GraphQL então, precisei dar uma estudada, mas compreendi o funcionamento.
 
-Achei um pouco pesado o tamanho do CRUD, acredito que apenas a relação de 3 models já bastaria para fazer um projeto bacana.
+Achei um pouco pesado o tamanho do CRUD, acredito que apenas a relação de 3 models já bastaria para fazer um projeto legal.
 
 - Fiz alguns specs unitários de mutations, queries e integração, apenas não fiz todos pois o contexto seria o mesmo.
 - "Dockerizei" o projeto :)
