@@ -164,7 +164,8 @@ Achei um pouco pesado o tamanho do CRUD, acredito que apenas a relação de 3 mo
 - Fiz alguns specs unitários de mutations, queries e integração, apenas não fiz todos pois o contexto seria o mesmo.
 - "Dockerizei" o projeto :)
 - Não coloquei autenticação na API por token pois estava tendo algumas dificuldades, e meu prazo de finalização do projeto já estava quase acabando.
-- Como adicionei uns specs mais complexos da queies e mutações, optei em não fazer o de controllers/models.
+- Como adicionei uns specs mais complexos das queries e mutações, optei em não fazer o de controllers/models.
+- Não tenho muito domínio em spec de integração, porém tenho noção, adicionei uma base de um spec de integração mas não consegui concluí-lo devido a minha stack ter um client, fiquei um pouco block nos mocks e configuração local da minha máquina do Capybara.
 
 Para utilizar o docker basta rodar os comandos:
 ```console
@@ -173,7 +174,7 @@ $ docker-compose up -d
 $ docker-compose run web bundle exec rake db:create db:migrate db:seed
 ```
 
-Evidência dos specs passando:
+Evidência dos specs unitários passando:
 ```console
 [  9:38PM ]  [ fsoares@pyhooma:~/Documents/projects/challenge_cargox(master✗) ]
  $ rspec /home/fsoares/Documents/projects/challenge_cargox/spec/graphql/mutations/companies/add_company_spec.rb
@@ -196,3 +197,15 @@ Finished in 0.08302 seconds (files took 0.94206 seconds to load)
 Finished in 0.10011 seconds (files took 0.95889 seconds to load)
 3 examples, 0 failures
 ```
+
+## Melhorias que eu faria no app:
+- Tratamento de dados exemplo validar se o CNPJ é válido, se os campos obrigatórios estão preenchidos, nome, sobrenome, etc.
+- Autenticação da API.
+- Melhoria nas views.
+- Etc.
+
+## Versões utilizadas:
+`ruby 2.6.3p62`
+`docker-compose version 1.27.4`
+`Debian GNU/Linux 10 (buster)`
+`psql (PostgreSQL) 9.6.19`
