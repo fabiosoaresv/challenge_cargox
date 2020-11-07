@@ -201,6 +201,20 @@ Finished in 0.08302 seconds (files took 0.94206 seconds to load)
 
 Finished in 0.10011 seconds (files took 0.95889 seconds to load)
 3 examples, 0 failures
+
+[  9:38PM ]  [ fsoares@pyhooma:~/Documents/projects/challenge_cargox(master✗) ]
+ $ rspec /home/fsoares/Documents/projects/challenge_cargox/spec/graphql/queries/fetch_companies_spec.rb
+...
+
+Finished in 0.17558 seconds (files took 3.3 seconds to load)
+3 examples, 0 failures
+
+[  9:38PM ]  [ fsoares@pyhooma:~/Documents/projects/challenge_cargox(master✗) ]
+ $ rspec /home/fsoares/Documents/projects/challenge_cargox/spec/graphql/queries/fetch_company_spec.rb
+...
+
+Finished in 0.09309 seconds (files took 1.14 seconds to load)
+3 examples, 0 failures
 ```
 
 ## Melhorias que eu faria no app:
