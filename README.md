@@ -161,14 +161,14 @@ Achei um desafio bem bacana, tendo em vista que eu nunca havia mexido em GraphQL
 
 Achei um pouco pesado o tamanho do CRUD, acredito que apenas a relação de 3 models já bastaria para fazer um projeto legal.
 
-- Fiz alguns specs unitários de mutations, queries e integração, apenas não fiz todos pois o contexto seria o mesmo.
+- Fiz alguns specs unitários de mutations, queries e integração, apenas não fiz todos pois a base seria igual.
 - "Dockerizei" o projeto :)
 - Não coloquei autenticação na API por token pois estava tendo algumas dificuldades, e meu prazo de finalização do projeto já estava quase acabando.
 - Como adicionei uns specs mais complexos das queries e mutações, optei em não fazer o de controllers/models.
 - Não tenho muito domínio em spec de integração, porém tenho noção, adicionei uma base de um spec de integração mas não consegui concluí-lo devido a minha arquitetura ter um client, fiquei um pouco block nos mocks e configuração local da minha máquina em relação ao Capybara.
 
 Para utilizar o docker basta rodar os comandos:
-Obs.: dê um check no config/database.yml caso NÃO for utilizar docker, deverá alterar o host.
+Obs.: dê um check no config/database.yml caso NÃO for utilizar docker, deverá alterar o host/password.
 ```console
 $ docker-compose build
 $ docker-compose up -d
@@ -210,6 +210,8 @@ Finished in 0.10011 seconds (files took 0.95889 seconds to load)
 - Cobertura de todos specs.
 - Deploy no Heroku.
 - CI (Buddy/SemaphoreCI)
+- Helpers.
+- Factories.
 - Etc.
 
 ## Versões utilizadas:
