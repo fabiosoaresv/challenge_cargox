@@ -165,7 +165,7 @@ Achei um pouco pesado o tamanho do CRUD, acredito que apenas a relação de 3 mo
 - "Dockerizei" o projeto :)
 - Não coloquei autenticação na API por token pois estava tendo algumas dificuldades, e meu prazo de finalização do projeto já estava quase acabando.
 - Como adicionei uns specs mais complexos das queries e mutações, optei em não fazer o de controllers/models.
-- Não tenho muito domínio em spec de integração, porém tenho noção, adicionei uma base de um spec de integração mas não consegui concluí-lo devido a minha stack ter um client, fiquei um pouco block nos mocks e configuração local da minha máquina do Capybara.
+- Não tenho muito domínio em spec de integração, porém tenho noção, adicionei uma base de um spec de integração mas não consegui concluí-lo devido a minha arquitetura ter um client, fiquei um pouco block nos mocks e configuração local da minha máquina em relação ao Capybara.
 
 Para utilizar o docker basta rodar os comandos:
 Obs.: dê um check no config/database.yml caso NÃO for utilizar docker, deverá alterar o host.
