@@ -68,7 +68,7 @@
   <div class="form-group">
     <%= label_tag :system, 'Em experiência:' %>
     <%= select_tag(
-      'employee[level]',
+      'employee[inExperience]',
       options_for_select([
         'Selecione uma opção', @experience
       ].flatten, disabled: "Selecione uma opção", selected: "Selecione uma opção"),
@@ -79,7 +79,7 @@
   <div class="form-group">
     <%= label_tag :system, 'Coordenador:' %>
     <%= select_tag(
-      'employee[level]',
+      'employee[coordinator_name]',
       options_for_select([
         'Selecione uma Coordenador', @coordinators.map { |coordinator| coordinator['name']}
       ].flatten, disabled: "Selecione uma Coordenador", selected: "Selecione uma Coordenador"),
@@ -93,7 +93,7 @@
       <%= submit_tag 'Criar', class: 'btn btn-primary pull-right' %>
     </div>
     <br>
-    <a href='/companies'><span class="button-back">Voltar</span></a>
+    <a href='/employees'><span class="button-back">Voltar</span></a>
   </div>
 <% end %>
 </div>

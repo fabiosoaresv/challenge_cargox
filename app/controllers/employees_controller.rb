@@ -18,8 +18,6 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    require 'pry'
-    binding.pry
     in_expirience = employee_params[:inExperience] == "true" ? true : false
     coordinator_id = coordinators.select { |x| x['name'] == employee_params[:coordinator_name] }.first['id']
     params_create = {
