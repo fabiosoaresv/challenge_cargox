@@ -213,3 +213,5 @@ Finished in 0.10011 seconds (files took 0.95889 seconds to load)
 `docker-compose version 1.27.4`
 `Debian GNU/Linux 10 (buster)`
 `psql (PostgreSQL) 9.6.19`
+
+Observação: durantes os testes, deixe a parte de deletar por último, pois se você deletar algum registro que tenha relação com outro, o update/criação irá falhar.
