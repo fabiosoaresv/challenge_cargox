@@ -204,9 +204,12 @@ Finished in 0.10011 seconds (files took 0.95889 seconds to load)
 ```
 
 ## Melhorias que eu faria no app:
-- Tratamento de dados exemplo validar se o CNPJ é válido, se os campos obrigatórios estão preenchidos, nome, sobrenome, etc.
+- Tratamento de dados exemplo validar se o CNPJ por exemplo, se os campos obrigatórios estão preenchidos, nome, sobrenome, etc.
 - Autenticação da API.
 - Melhoria nas views.
+- Cobertura de todos specs.
+- Deploy no Heroku.
+- CI (Buddy/SemaphoreCI)
 - Etc.
 
 ## Versões utilizadas:
