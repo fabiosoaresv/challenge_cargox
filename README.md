@@ -172,7 +172,7 @@ Obs.: dê um check no config/database.yml caso NÃO for utilizar docker, deverá
 ```console
 $ docker-compose build
 $ docker-compose up -d
-$ docker-compose run web bundle exec rake db:create db:migrate db:seed
+$ docker-compose run web bundle exec rails db:create db:migrate db:seed
 ```
 
 Ou para rodar o projeto localmente sem docker, basta clonar e rodar:
