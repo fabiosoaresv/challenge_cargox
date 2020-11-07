@@ -1,11 +1,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # Se for rodar localmente sem docker, trocar o host
-  # host: localhost
+  # Se for rodar localmente sem docker, trocar o host / password de acordo com sua configuração
+  #host: your_host
   host: db
   username: postgres
   password: password
+  #password: your_password
   pool: 5
 
 development:
