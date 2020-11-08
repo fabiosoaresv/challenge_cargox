@@ -58,8 +58,8 @@ As relações e atributos seguem o seguinte diagrama:
   - Empregado Júnior
   - Empregado Sênior
 
-## Solução para a Tarefa 1:
-- Fora criadas as Mutaçãoes (app/graphql/mutations) e Queries (app/graphql/queries) no GraphQL para resolver a parte deste CRUD.
+#### Solução para a Tarefa 1:
+- Foram criadas as Mutaçãoes (app/graphql/mutations) e Queries (app/graphql/queries) no GraphQL para resolver a parte deste CRUD.
 - Na sequência aproveitei o CRUD feito no GraphQL e utilizei um client para poder consumir a API do Projeto, onde fiz um Service já que em vários momentos precisaria utilizar a API (app/services/client_graphql.rb)
 - Para testar o CRUD pelo GraphQL, você pode subir o projeto com Docker ou localmente, e acessar a url http://localhost:3000/graphiql e fazer as mutações/queries, exemplos:
 
@@ -99,7 +99,7 @@ query {
 
 OBS: As companhias devem ser ordenadas em ordem **crescente** por: `nome`, `nome do fundador`, `número de funcionários`
 
-## Solução para a Tarefa 2:
+#### Solução para a Tarefa 2:
 Criei um relatório extraindo as informações acima. O mesmo foi resolvido nos arquivos:
 - app/controllers/reports_controller.rb
 - app/views/reports/index.html.erb
@@ -113,7 +113,7 @@ Obs.: optei em utilizar o ActiveRecord para realizar as consultas ao invés da A
    - salário
    - nível (júnior ou sênior)
 
-## Solução para a Tarefa 3:
+#### Solução para a Tarefa 3:
 Disponibilizei uma tela de cadastro para cada Endpoint, para os Funcionários é possível encontrar o código em:
 - app/controllers/employees_controller.rb
 - app/views/employees
@@ -122,7 +122,7 @@ Disponibilizei uma tela de cadastro para cada Endpoint, para os Funcionários é
    utilizar `GraphQL`, adicionar o painel `graphiql` para teste e documentação
    das queries e mutations.
 
-## Solução para a Tarefa 4:
+#### Solução para a Tarefa 4:
 Como utilizei as gem's GraphQL e Graphiql-Rails é possível consultar todas queries e mutações na Documentação da página http://localhost:3000/graphiql
 - Exemplos de consumo da API via `cURL`:
 
@@ -150,10 +150,11 @@ curl -H "Content-Type: application/json" -X POST -d '
    mas sinta-se à vontade para escolher a biblioteca ou framework que mais lhe
    agrade
 
-## Solução para o Diferencial 1:
+#### Solução para o Diferencial 1:
 Conforme dito anteriormente, contrui um front (em Rails pois não tenho muito domínio em Front) para todos os endpoints.
 
 2. Construir a API utilizando `GraphQL`
+
 `done xD`
 
 ## Considerações finais
