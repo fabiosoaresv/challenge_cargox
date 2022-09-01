@@ -1,19 +1,19 @@
-# CargoX Coding Challenge - Projeto ADM
+# CargoX Coding Challenge - ADM Project
 
-## Problema
+## Problem
 
-O conglomerado CargoX Corp. adquiriu algumas companhias menores e precisamos construir uma aplicação para cadastrar todos os funcionários de cada empresa.
+The conglomerate CargoX Corp. acquired some smaller companies and we need to build an application to register all the employees of each company.
 
-As relações e atributos seguem o seguinte diagrama:
+The relationships and attributes follow the following diagram:
 
 ```
 +-------------+ *      1 +--------------+ 1      1 +-------------+
-|   Company   +----------+   Fundador   +----------+    Lider    |
+|   Company   +----------+   Foundator  +----------+    Lead     |
 |             |          |              |          |             |
-|  nome       |          |  nome        |          |  nome       |
-|  CNPJ       |          |  sobrenome   |          |  sobrenome  |
-|  fundação   |          |  idade       |          |  idade      |
-|             |          |              |          |  área       |
+|  name       |          |  name        |          |  name       |
+|  CNPJ       |          |  surname     |          |  surname    |
+|  foundation |          |  age.        |          |  age.       |
+|             |          |              |          |  area       |
 +-------------+          +--------------+          |             |
                                                    +------+------+
                                                           | 1
@@ -22,7 +22,7 @@ As relações e atributos seguem o seguinte diagrama:
                                      |
                                    * |
                             +--------+--------+
-                            |   Coordenador   |
+                            |   Coordinator   |
                             |                 |
                             |  nome           |
                             |  sobrenome      |
@@ -36,34 +36,34 @@ As relações e atributos seguem o seguinte diagrama:
                               |             |
                             * |             | *
             +-----------------+----+   +----+-----------------+
-            |   Empregado Júnior   |   |   Empregado Sênior   |
+            |   Junior Employee    |   |   Senior Employee    |
             |                      |   |                      |
-            |  nome                |   |  nome                |
-            |  sobrenome           |   |  sobrenome           |
-            |  idade               |   |  idade               |
-            |  em experiência?     |   |  salário             |
-            |  salário             |   |  em experiência?     |
+            |  name                |   |  name                |
+            |  surname             |   |  surname             |
+            |  age.                |   |  age                 |
+            |  age.                |   |  salary              |
+            |  experience period?  |   |  experience period?  |
             |                      |   |                      |
             +----------------------+   +----------------------+
 
 ```
 
-## Tarefa
+## Tasks
 
-1. Construir uma API **utilizando JSON API** para que seja possível criar, consultar, alterar e remover (CRUD) os recursos:
-  - Company
-  - Fundador
-  - Líder
-  - Coordenador
-  - Empregado Júnior
-  - Empregado Sênior
+Task 1. Build an API **using JSON API** so that you can create, query, change and remove (CRUD) resources:
+   - Company
+   - Founder
+   - Leader
+   - Coordinator
+   - Junior Employee
+   - Senior Employee
 
-#### Solução para a Tarefa 1:
-- Foram criadas as Mutaçãoes (app/graphql/mutations) e Queries (app/graphql/queries) no GraphQL para resolver a parte deste CRUD.
-- Na sequência aproveitei o CRUD feito no GraphQL e utilizei um client para poder consumir a API do Projeto, onde fiz um Service já que em vários momentos precisaria utilizar a API (app/services/client_graphql.rb)
-- Para testar o CRUD pelo GraphQL, você pode subir o projeto com Docker ou localmente, e acessar a url http://localhost:3000/graphiql e fazer as mutações/queries, exemplos:
+#### Solution for Task 1:
+- Mutations (app/graphql/mutations) and Queries (app/graphql/queries) were created in GraphQL to solve the part of this CRUD.
+- Then I took advantage of the CRUD made in GraphQL and used a client to be able to consume the Project API, where I made a Service since at various times I would need to use the API (app/services/client_graphql.rb)
+- To test CRUD by GraphQL, you can upload the project with Docker or locally, and access the url http://localhost:3000/graphiql and make the mutations/queries, examples:
 
-*Mutation para criar um Foundator:*
+*Mutation for create a um Foundator:*
 ```ruby
 mutation {
   addFoundator(input: { params: { name: "Fabio", surname: "Soares", age: 23 }}) {
@@ -76,7 +76,7 @@ mutation {
 }
 ```
 
-*Query para consultar todos Foundators:*
+*Query to search all Foundators:*
 ```ruby
 query {
   fetchFoundators {
@@ -87,44 +87,42 @@ query {
 }
 ```
 
-2. Disponibilizar rota para consulta de um `sumário` da companhia com os seguintes dados:
-  - nome da companhia
+Task 2. Provide a route for consulting a `summary` of the company with the following data:
+  - name of company
   - CNPJ
-  - nome do Fundador
-  - número total de funcionários
-  - número total de líderes
-  - número total de coordenadores
-  - número total de empregados sênior
-  - número total de empregados júnior
+  - Foundators name
+  - number totally employees
+  - number totally leads
+  - number totally coordinators
+  - number totally senior employees
+  - number totally junior  employees
 
-OBS: As companhias devem ser ordenadas em ordem **crescente** por: `nome`, `nome do fundador`, `número de funcionários`
+Note: Companies should be sorted in **ascending** order by: `name`, `founder name`, `number of employees`
 
-#### Solução para a Tarefa 2:
-Criei um relatório extraindo as informações acima. O mesmo foi resolvido nos arquivos:
+#### Solution for Task 2:
+I created a report by extracting the information above. The same was resolved in the files:
 - app/controllers/reports_controller.rb
 - app/views/reports/index.html.erb
 
-Obs.: optei em utilizar o ActiveRecord para realizar as consultas ao invés da API.
+Note: I chose to use ActiveRecord to perform the queries instead of the API.
 
-3. Disponibilizar uma rota para contratação de novos empregados (Júnior ou Sênior) que receba os seguintes parâmetros:
-   - nome
-   - sobrenome
-   - idade
-   - salário
-   - nível (júnior ou sênior)
+Task 3. Provide a route for hiring new employees (Junior or Senior) that receives the following parameters:
+   - name
+   - surname
+   - age
+   - salary
+   - level (junior or senior)
 
-#### Solução para a Tarefa 3:
-Disponibilizei uma tela de cadastro para cada Endpoint, para os Funcionários é possível encontrar o código em:
+#### Solution for Task 3:
+I did available a registration screen for each Endpoint, for Employees it is possible to find the code at:
 - app/controllers/employees_controller.rb
 - app/views/employees
 
-4. Documentação das rotas e exemplos de `curl` para teste da API. No caso de
-   utilizar `GraphQL`, adicionar o painel `graphiql` para teste e documentação
-   das queries e mutations.
+Task 4. Route documentation and `curl` examples for API testing. If using `GraphQL`, add the `graphiql` panel for testing and documenting queries and mutations.
 
-#### Solução para a Tarefa 4:
-Como utilizei as gem's GraphQL e Graphiql-Rails é possível consultar todas queries e mutações na Documentação da página http://localhost:3000/graphiql
-- Exemplos de consumo da API via `cURL`:
+#### Solution for Tarefa 4:
+As I used the GraphQL and Graphiql-Rails gems it is possible to consult all queries and mutations in the Documentation of the page http://localhost:3000/graphiql
+- Examples of API consumption via with `cURL`:
 
 Queries
 ```curl
@@ -142,45 +140,33 @@ curl -H "Content-Type: application/json" -X POST -d '
   }' http://localhost:3000/graphql
 ```
 
-## Diferenciais
+## Differentials
 
-1. Construção de um painel front-end que implemente criação, edição, consulta e
-   remoção de **cada um dos recursos** citados (Fundador, Líder, etc). O painel
-   não precisa ser bonito, somente funcionar. Aqui na CargoX utilizamos `VueJS`,
-   mas sinta-se à vontade para escolher a biblioteca ou framework que mais lhe
-   agrade
+1. Construction of a front-end panel that implements creation, editing, consultation and removal of **each one of the mentioned resources** (Founder, Leader, etc). The panel doesn't have to be pretty, just work. Here at CargoX we use `VueJS`, but feel free to choose the library or framework that suits you best.
 
-#### Solução para o Diferencial 1:
-Conforme dito anteriormente, contrui um front (em Rails pois não tenho muito domínio em Front) para todos os endpoints.
+#### Solution for ifferential:
+`done :D`
+As said before, I did a front with Rails for all endpoints.
 
 2. Construir a API utilizando `GraphQL`
+`done :D`
 
-`done xD`
+## My final considerations
+- I use docker in the project :)
 
-## Considerações finais
-Achei um desafio bem bacana, tendo em vista que eu nunca havia mexido em GraphQL então, precisei dar uma estudada, mas compreendi o funcionamento.
-
-Achei um pouco pesado o tamanho do CRUD, acredito que apenas a relação de 3 models já bastaria para fazer um projeto legal.
-
-- Fiz alguns specs unitários de mutations, queries e integração, apenas não fiz todos pois a base seria igual.
-- "Dockerizei" o projeto :)
-- Não coloquei autenticação na API por token pois estava tendo algumas dificuldades, e meu prazo de finalização do projeto já estava quase acabando.
-- Como adicionei uns specs mais complexos das queries e mutações, optei em não fazer o de controllers/models.
-- Não tenho muito domínio em spec de integração, porém tenho noção, adicionei uma base de um spec de integração mas não consegui concluí-lo devido a minha arquitetura ter um client, fiquei um pouco block nos mocks e configuração local da minha máquina em relação ao Capybara.
-
-Para utilizar o docker basta rodar os comandos:
-Obs.: dê um check no config/database.yml caso NÃO for utilizar docker, deverá alterar o host/password.
+To use docker just run the commands:
+Note.: check the config/database.yml if you are NOT using docker, you must change the host/password.
 ```console
 $ docker-compose build
 $ docker-compose up -d
 $ docker-compose run web bundle exec rails db:create db:migrate db:seed
 ```
 
-Ou para rodar o projeto localmente sem docker, basta clonar e rodar:
+Or to run the project locally without docker, just clone and run:
 ```console
 $ bundle install && bundle exec rails db:drop db:create db:migrate db:seed && rails s
 ```
-Evidência dos specs unitários passando:
+Evidence of the unit specs:
 ```console
 [  9:38PM ]  [ fsoares@pyhooma:~/Documents/projects/challenge_cargox(master✗) ]
  $ rspec /home/fsoares/Documents/projects/challenge_cargox/spec/graphql/mutations/companies/add_company_spec.rb
@@ -218,13 +204,12 @@ Finished in 0.09309 seconds (files took 1.14 seconds to load)
 3 examples, 0 failures
 ```
 
-## Melhorias que eu faria no app:
-- Tratamento de dados exemplo validar se o CNPJ por exemplo, se os campos obrigatórios estão preenchidos, nome, sobrenome, etc.
-- Autenticação da API.
-- Melhoria nas views.
-- Cobertura de todos specs.
-- Deploy no Heroku.
-- CI (Buddy/SemaphoreCI)
+## Improvements I would do to this app:
+- Add validations in CNPJ, mandatory fields, name, surname, etc.
+- API authentication.
+- Improved views.
+- Deploy on Heroku.
+- CI (Buddy/SemaphoreCI/CircleCI)
 - Helpers.
 - Factories.
 - Etc.
@@ -235,4 +220,4 @@ Finished in 0.09309 seconds (files took 1.14 seconds to load)
 `Debian GNU/Linux 10 (buster)`
 `psql (PostgreSQL) 9.6.19`
 
-Observação: durantes a execução da aplicação e testes manuais, deixe a parte de deletar por último / pois se você deletar algum registro que tenha relação com outro, o update/criação irá falhar dependendo do contexto.
+Note: during application execution and manual testing, use the delete feature for last / because if you delete any record that is related to another, the update/creation will fail depending on the context.
